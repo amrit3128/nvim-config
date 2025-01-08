@@ -4,8 +4,8 @@ return {
     event = "VeryLazy",
     version = false,
     config = function()
-      -- local statusline = require 'mini.statusline'
-      -- statusline.setup {
+
+      -- require("mini.statusline").setup {
       --   content = {
       --     active = nil,
       --     inactive = nil,
@@ -14,14 +14,10 @@ return {
       --   set_vim_settings = true,
       -- }
 
-      -- local starter = require 'mini.starter'
-      -- starter.setup { use_icons = true }
+      -- require("mini.starter").setup { use_icons = true }
+      -- require("mini.sessions").setup()
 
-      -- local session = require 'mini.sessions'
-      -- session.setup()
-
-      local move = require 'mini.move'
-      move.setup({
+      require("mini.move").setup({
         {
           -- Module mappings. Use `''` (empty string) to disable one.
           mappings = {
@@ -46,15 +42,11 @@ return {
         }
       })
 
-      local files = require 'mini.files'
-      files.setup { use_icons = true }
+      require("mini.files").setup { use_icons = true }
       vim.keymap.set("n", "<space>e", function() MiniFiles.open() end, { desc = "Mini Files" })
 
-      local ai = require 'mini.ai'
-      ai.setup()
-
-      -- local pick = require 'mini.pick'
-      -- pick.setup()
+      require("mini.ai").setup()
+      -- require("mini.pick").setup()
     end,
   }
 }

@@ -24,6 +24,14 @@ return {
         "mhartington/formatter.nvim",
         -- "neovim/nvim-lspconfig",
       },
+      {
+        "SmiteshP/nvim-navbuddy",
+        dependencies = {
+          "SmiteshP/nvim-navic",
+          "MunifTanjim/nui.nvim"
+        },
+        opts = { lsp = { auto_attach = true } }
+      },
     },
 
     config = function()
@@ -82,6 +90,7 @@ return {
 
       vim.keymap.set("n", "<space>cf", function() vim.lsp.buf.format() end, { desc = "Format Buffer" })
       -- vim.keymap.set("n", "<space>cr", function() vim.lsp.buf.rename() end, { desc = "Rename with LSP" })
+      vim.keymap.set("n", "<leader>i", "<cmd>Navbuddy<Cr>", { desc = "Navbuddy" })
       vim.keymap.set("n", "<leader>cr", live_rename.rename, { desc = "LSP rename" })
       vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, { desc = "Go To Defination" })
       vim.keymap.set("n", "grr", function() vim.lsp.buf.references() end, { desc = "Go To References" })

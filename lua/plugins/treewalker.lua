@@ -15,5 +15,16 @@ return {
     -- The color of the above highlight. Must be a valid vim highlight group.
     -- (see :h highlight-group for options)
     highlight_group = 'CursorLine',
-  }
+  },
+
+  vim.keymap.set("n", "<space>tj", "<cmd>Treewalker Down<CR>", { desc = "Treewalker Down" }),
+  vim.keymap.set("n", "<space>tk", "<cmd>Treewalker Up<CR>", { desc = "Treewalker Up" }),
+  vim.keymap.set("n", "<space>tl", "<cmd>Treewalker Right<CR>", { desc = "Treewalker Right" }),
+  vim.keymap.set("n", "<space>th", "<cmd>Treewalker Left<CR>", { desc = "Treewalker Left" }),
+
+  vim.keymap.set("n", "<space>tsj", "<cmd>Treewalker SwapDown<CR>", { desc = "Treewalker Swap Down" }),
+  vim.keymap.set("n", "<space>tsk", "<cmd>Treewalker SwapUp<CR>", { desc = "Treewalker Swap Up" }),
+  vim.keymap.set("n", "<space>tsl", "<cmd>Treewalker SwapRight<CR>", { desc = "Treewalker Swap Right" }),
+  vim.keymap.set("n", "<space>tsh", "<cmd>Treewalker SwapLeft<CR>", { desc = "Treewalker Swap Left" }),
+
 }
