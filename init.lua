@@ -30,6 +30,7 @@ vim.opt.undofile = true
 vim.opt.ignorecase = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.number = true
+vim.opt.splitkeep = "screen"
 vim.opt.relativenumber = true
 vim.wo.signcolumn = "yes"
 vim.opt.tabstop = 2
@@ -38,12 +39,18 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.bo.softtabstop = 2
 
+-- views can only be fully collapsed with the global statusline
+vim.opt.laststatus = 3
+-- Default splitting will cause your main splits to jump when opening an edgebar.
+-- To prevent this, set `splitkeep` to either `screen` or `topline`.
+
 vim.keymap.set("n", "<space>bd", "<cmd>bd<CR>", { desc = "Delete Buffer" })
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit Insert Mode in Terminal" })
 vim.keymap.set("v", "<space>x", ":lua<CR>", { desc = "Source Line" })
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Remove Search Highlights" })
 vim.keymap.set("n", "<space>w", "<C-w>", { desc = "Switch Windows" })
 vim.keymap.set("n", "<space>fs", "<cmd>write<CR>", { desc = "Save File" })
+vim.keymap.set("n", "<M-o>", "<cmd>copen<CR>", { desc = "Open Quickfix Window" })
 vim.keymap.set({ "n", "t" }, "<M-n>", "<cmd>bnext<CR>", { desc = "Next Buffer" })
 vim.keymap.set({ "n", "t" }, "<M-q>", "<cmd>bdelete!<CR>", { desc = "Delete Buffer" })
 vim.keymap.set({ "n", "t" }, "<M-p>", "<cmd>bprevious<CR>", { desc = "Previous Buffer" })

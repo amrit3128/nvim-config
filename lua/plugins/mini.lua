@@ -4,7 +4,6 @@ return {
     event = "VeryLazy",
     version = false,
     config = function()
-
       -- require("mini.statusline").setup {
       --   content = {
       --     active = nil,
@@ -41,6 +40,8 @@ return {
           },
         }
       })
+
+      require("mini.pairs").setup()
 
       require("mini.files").setup { use_icons = true }
       vim.keymap.set("n", "<space>e", function() MiniFiles.open() end, { desc = "Mini Files" })

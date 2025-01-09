@@ -94,7 +94,7 @@ return {
       vim.keymap.set("n", "<leader>cr", live_rename.rename, { desc = "LSP rename" })
       vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, { desc = "Go To Defination" })
       vim.keymap.set("n", "grr", function() vim.lsp.buf.references() end, { desc = "Go To References" })
-      vim.keymap.set("n", "<space>ca", function() vim.lsp.buf.code_action() end, { desc = "Show Code Actions" })
+      -- vim.keymap.set("n", "<space>ca", function() vim.lsp.buf.code_action() end, { desc = "Show Code Actions" })
     end
   },
 }
