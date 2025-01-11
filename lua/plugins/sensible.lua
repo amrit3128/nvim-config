@@ -1,4 +1,5 @@
-return {
+return
+{
   "tpope/vim-sensible",
   event = "VeryLazy",
 }

@@ -1,5 +1,6 @@
 ---@diagnostic disable: unused-local
-return {
+return
+{
   "kevinhwang91/nvim-ufo",
   vent = "VeryLazy",
   dependencies = {

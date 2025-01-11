@@ -1,4 +1,5 @@
-return {
+return
+{
   "jvgrootveld/telescope-zoxide",
   event = "VeryLazy",
   config = function()

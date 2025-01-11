@@ -1,4 +1,5 @@
-return {
+return
+{
   {
     "williamboman/mason.nvim",
     event = "VeryLazy",
@@ -27,7 +28,65 @@ return {
       {
         "SmiteshP/nvim-navbuddy",
         dependencies = {
-          "SmiteshP/nvim-navic",
+          {
+            "SmiteshP/nvim-navic",
+
+            config = function()
+              local navic = require("nvim-navic")
+
+
+              navic.setup {
+                icons = {
+                  File          = "󰈙 ",
+                  Module        = " ",
+                  Namespace     = "󰌗 ",
+                  Package       = " ",
+                  Class         = "󰌗 ",
+                  Method        = "󰆧 ",
+                  Property      = " ",
+                  Field         = " ",
+                  Constructor   = " ",
+                  Enum          = "󰕘",
+                  Interface     = "󰕘",
+                  Function      = "󰊕 ",
+                  Variable      = "󰆧 ",
+                  Constant      = "󰏿 ",
+                  String        = "󰀬 ",
+                  Number        = "󰎠 ",
+                  Boolean       = "◩ ",
+                  Array         = "󰅪 ",
+                  Object        = "󰅩 ",
+                  Key           = "󰌋 ",
+                  Null          = "󰟢 ",
+                  EnumMember    = " ",
+                  Struct        = "󰌗 ",
+                  Event         = " ",
+                  Operator      = "󰆕 ",
+                  TypeParameter = "󰊄 ",
+                },
+                lsp = {
+                  auto_attach = false,
+                  preference = nil,
+                },
+                highlight = false,
+                separator = " > ",
+                depth_limit = 0,
+                depth_limit_indicator = "..",
+                safe_output = true,
+                lazy_update_context = false,
+                click = false,
+                format_text = function(text)
+                  return text
+                end,
+              }
+              -- require("lspconfig").clangd.setup {
+              --   on_attach = function(client, bufnr)
+              --     navic.attach(client, bufnr)
+              --   end
+              -- }
+            end
+
+          },
           "MunifTanjim/nui.nvim"
         },
         opts = { lsp = { auto_attach = true } }
@@ -44,7 +103,15 @@ return {
         -- and will be called for each installed server that doesn't have
         -- a dedicated handler.
         function(server_name) -- default handler (optional)
-          require("lspconfig")[server_name].setup { capabilities = capabilities }
+          require("lspconfig")[server_name].setup {
+            capabilities = capabilities,
+
+            on_attach = function(client, bufnr)
+              if client.server_capabilities.documet_Symbol_Provider then
+                require("nvim-navic").attach(client, bufnr)
+              end
+            end
+          }
         end,
         -- Next, you can provide a dedicated handler for specific servers.
         -- For example, a handler override for the `rust_analyzer`:
@@ -90,7 +157,7 @@ return {
 
       vim.keymap.set("n", "<space>cf", function() vim.lsp.buf.format() end, { desc = "Format Buffer" })
       -- vim.keymap.set("n", "<space>cr", function() vim.lsp.buf.rename() end, { desc = "Rename with LSP" })
-      vim.keymap.set("n", "<leader>i", "<cmd>Navbuddy<Cr>", { desc = "Navbuddy" })
+      vim.keymap.set("n", "<leader>ci", "<cmd>Navbuddy<Cr>", { desc = "Navbuddy" })
       vim.keymap.set("n", "<leader>cr", live_rename.rename, { desc = "LSP rename" })
       vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, { desc = "Go To Defination" })
       vim.keymap.set("n", "grr", function() vim.lsp.buf.references() end, { desc = "Go To References" })

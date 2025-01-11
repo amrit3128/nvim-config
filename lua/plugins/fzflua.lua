@@ -1,4 +1,5 @@
-return {
+return
+{
   "ibhagwan/fzf-lua",
   event = "VeryLazy",
   -- optional for icon support

@@ -1,7 +1,9 @@
-return {
+return
+{
   {
     "nvim-neo-tree/neo-tree.nvim",
-    enabled = false,
+    event = "VeryLazy",
+    enabled = true,
     branch = "v3.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -325,7 +327,7 @@ return {
               ["ot"] = { "order_by_type", nowait = false },
             }
           }
-        }
+        },
       })
 
       vim.cmd([[nnoremap \ :Neotree reveal<cr>]])

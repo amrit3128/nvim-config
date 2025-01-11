@@ -1,4 +1,5 @@
-return {
+return
+{
   "SmiteshP/nvim-navbuddy",
   event = "VeryLazy",
   dependencies = {

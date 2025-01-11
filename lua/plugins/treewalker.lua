@@ -1,4 +1,5 @@
-return {
+return
+{
   'aaronik/treewalker.nvim',
   event = "VeryLazy",
 

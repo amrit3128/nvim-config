@@ -1,4 +1,5 @@
-return {
+return
+{
   'nvim-telescope/telescope.nvim',
   event = "VeryLazy",
   tag = '0.1.8',
@@ -35,7 +36,7 @@ return {
     vim.keymap.set("n", "<space>fb", require('telescope.builtin').current_buffer_fuzzy_find,
       { desc = "Find in Current Buffer" })
     vim.keymap.set("n", "<space>fr", require('telescope.builtin').oldfiles, { desc = "Find Recent Files" })
-    vim.keymap.set("n", "<space>fh", require('telescope.builtin').help_tags, { desc = "Help Tags" })
+    -- vim.keymap.set("n", "<space>fh", require('telescope.builtin').help_tags, { desc = "Help Tags" })
     vim.keymap.set("n", "<space>/", require('telescope.builtin').live_grep, { desc = "Live Grep" })
     vim.keymap.set("n", "<space>ht", require('telescope.builtin').builtin, { desc = "Telescope All" })
     vim.keymap.set("n", "<space>,", require('telescope.builtin').buffers, { desc = "Find Buffers" })

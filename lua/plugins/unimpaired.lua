@@ -1,4 +1,5 @@
-return {
+return
+{
   event = "VeryLazy",
   "tpope/vim-unimpaired",
 }

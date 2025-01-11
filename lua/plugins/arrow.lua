@@ -1,4 +1,5 @@
-return {
+return 
+{
   "otavioschwanck/arrow.nvim",
   enabled = false,
   event = "VeryLazy",

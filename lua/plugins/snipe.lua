@@ -1,4 +1,5 @@
-return {
+return
+{
   "leath-dub/snipe.nvim",
   event = "VeryLazy",
   keys = {

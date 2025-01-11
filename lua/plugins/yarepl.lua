@@ -1,4 +1,5 @@
-return {
+return
+{
   'milanglacier/yarepl.nvim',
   event = "VeryLazy",
   config = function()
@@ -45,5 +46,5 @@ return {
     }
   end,
 
-  vim.keymap.set("n", "<space>or", "<cmd>REPLStart<Cr>", {desc = "Open a REPL"}),
+  vim.keymap.set("n", "<space>or", "<cmd>REPLStart<Cr>", { desc = "Open a REPL" }),
 }

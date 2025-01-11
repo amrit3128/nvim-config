@@ -7,6 +7,7 @@ return
     { 'n', 'x' },
     '<leader>ca',
     '<cmd>lua require("fastaction").code_action()<CR>',
+    ---@diagnostic disable-next-line: undefined-global
     { buffer = bufnr }
   )
 }
