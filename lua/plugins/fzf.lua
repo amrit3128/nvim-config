@@ -1,8 +1,7 @@
-return
-{
-  'junegunn/fzf',
+return {
+  "junegunn/fzf",
   event = "VeryLazy",
   run = function()
-    vim.fn['fzf#install']()
-  end
+    vim.fn["fzf#install"]()
+  end,
 }

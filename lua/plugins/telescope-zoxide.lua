@@ -1,12 +1,11 @@
-return
-{
+return {
   "jvgrootveld/telescope-zoxide",
   event = "VeryLazy",
   config = function()
     -- Useful for easily creating commands
     local z_utils = require("telescope._extensions.zoxide.utils")
 
-    require('telescope').setup {
+    require("telescope").setup({
       -- (other Telescope configuration...)
       extensions = {
         zoxide = {
@@ -16,20 +15,22 @@ return
             default = {
               after_action = function(selection)
                 print("Update to (" .. selection.z_score .. ") " .. selection.path)
-              end
+              end,
             },
             ["<C-s>"] = {
-              before_action = function(selection) print("before C-s") end,
+              before_action = function(selection)
+                print("before C-s")
+              end,
               action = function(selection)
                 vim.cmd.edit(selection.path)
-              end
+              end,
             },
             -- Opens the selected entry in a new split
             ["<C-q>"] = { action = z_utils.create_basic_command("split") },
           },
-        }
-      }
-    }
+        },
+      },
+    })
     vim.keymap.set("n", "<leader>zo", require("telescope").extensions.zoxide.list, { desc = "Telescope Zozide" })
-  end
+  end,
 }

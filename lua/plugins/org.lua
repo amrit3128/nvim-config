@@ -1,13 +1,12 @@
-return
-{
-  'nvim-orgmode/orgmode',
-  event = 'VeryLazy',
-  ft = { 'org' },
+return {
+  "nvim-orgmode/orgmode",
+  event = "VeryLazy",
+  ft = { "org" },
   config = function()
     -- Setup orgmode
-    require('orgmode').setup({
-      org_agenda_files = '~/Learn/**/*',
-      org_default_notes_file = '~/notes/Learn.org',
+    require("orgmode").setup({
+      org_agenda_files = "~/Learn/**/*",
+      org_default_notes_file = "~/notes/Learn.org",
     })
 
     -- NOTE: If you are using nvim-treesitter with ~ensure_installed = "all"~ option

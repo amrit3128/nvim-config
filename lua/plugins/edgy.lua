@@ -1,6 +1,5 @@
 ---@diagnostic disable: undefined-doc-name
-return 
-{
+return {
   "folke/edgy.nvim",
   -- enabled = false,
   event = "VeryLazy",
@@ -115,5 +114,5 @@ return
     -- enable this on Neovim <= 0.10.0 to properly fold edgebar windows.
     -- Not needed on a nightly build >= June 5, 2023.
     fix_win_height = vim.fn.has("nvim-0.10.0") == 0,
-  }
+  },
 }

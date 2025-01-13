@@ -1,8 +1,7 @@
-return
-{
+return {
   "roobert/tabtree.nvim",
   event = "VeryLazy",
-  enabled = false,
+  -- enabled = true,
   config = function()
     require("tabtree").setup()
   end,

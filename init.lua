@@ -1,6 +1,6 @@
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight when yanking text",
+  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
   callback = function()
     vim.highlight.on_yank()
   end,
@@ -19,8 +19,13 @@ vim.api.nvim_create_autocmd("BufRead", {
   callback = function()
     local ft = vim.bo.filetype
     local line = vim.fn.line("'\"")
-    if line >= 1 and line <= vim.fn.line("$") and ft ~= "commit" and not vim.tbl_contains({ "xxd", "gitrebase" }, ft) then
-      vim.cmd("normal! g`\"")
+    if
+      line >= 1
+      and line <= vim.fn.line("$")
+      and ft ~= "commit"
+      and not vim.tbl_contains({ "xxd", "gitrebase" }, ft)
+    then
+      vim.cmd('normal! g`"')
     end
   end,
 })
@@ -38,11 +43,7 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.bo.softtabstop = 2
-
--- views can only be fully collapsed with the global statusline
 vim.opt.laststatus = 3
--- Default splitting will cause your main splits to jump when opening an edgebar.
--- To prevent this, set `splitkeep` to either `screen` or `topline`.
 
 vim.keymap.set("n", "<space>bd", "<cmd>bd<CR>", { desc = "Delete Buffer" })
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit Insert Mode in Terminal" })

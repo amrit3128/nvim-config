@@ -1,11 +1,10 @@
-return
-{
+return {
   "aznhe21/actions-preview.nvim",
   event = "VeryLazy",
   config = function()
     vim.keymap.set({ "v", "n" }, "gf", require("actions-preview").code_actions)
     local hl = require("actions-preview.highlight")
-    require("actions-preview").setup {
+    require("actions-preview").setup({
       highlight_command = {
         -- Highlight diff using delta: https://github.com/dandavison/delta
         -- The argument is optional, in which case "delta" is assumed to be
@@ -25,10 +24,7 @@ return
         -- "diff-highlight" and the second argument is assumed to be
         -- `{ colordiff = "colordiff", pager = "less -R" }`. The existence of
         -- colordiff and less is optional.
-        hl.diff_highlight(
-          "/usr/bin/delta",
-          { colordiff = "path/to/colordiff" }
-        ),
+        hl.diff_highlight("/usr/bin/delta", { colordiff = "path/to/colordiff" }),
 
         -- And, you can use any command to highlight diff.
         -- Define the pipeline by `hl.commands`.
@@ -41,6 +37,6 @@ return
         hl.with_pager("/usr/bin/delta"),
         -- hl.with_pager("command-to-diff-highlight", "custom-pager"),
       },
-    }
+    })
   end,
 }

@@ -1,5 +1,4 @@
-return
-{
+return {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
@@ -21,13 +20,12 @@ return
         style = "out",
         easing = "linear",
         duration = {
-          step = 20,   -- ms per step
+          step = 20, -- ms per step
           total = 500, -- maximum duration
         },
-      }
+      },
     },
     statuscolumn = { enabled = true },
     words = { enabled = true },
-
   },
 }

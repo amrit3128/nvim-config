@@ -1,6 +1,5 @@
-return
-{
-  'aaronik/treewalker.nvim',
+return {
+  "aaronik/treewalker.nvim",
   event = "VeryLazy",
 
   -- The following options are the defaults.
@@ -15,7 +14,7 @@ return
 
     -- The color of the above highlight. Must be a valid vim highlight group.
     -- (see :h highlight-group for options)
-    highlight_group = 'CursorLine',
+    highlight_group = "CursorLine",
   },
 
   vim.keymap.set("n", "<space>tj", "<cmd>Treewalker Down<CR>", { desc = "Treewalker Down" }),
@@ -27,5 +26,4 @@ return
   vim.keymap.set("n", "<space>tsk", "<cmd>Treewalker SwapUp<CR>", { desc = "Treewalker Swap Up" }),
   vim.keymap.set("n", "<space>tsl", "<cmd>Treewalker SwapRight<CR>", { desc = "Treewalker Swap Right" }),
   vim.keymap.set("n", "<space>tsh", "<cmd>Treewalker SwapLeft<CR>", { desc = "Treewalker Swap Left" }),
-
 }

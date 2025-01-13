@@ -1,5 +1,4 @@
-return
-{
+return {
   "vim-scripts/ReplaceWithRegister",
   event = "VeryLazy",
   dependencies = {

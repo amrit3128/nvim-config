@@ -1,14 +1,13 @@
-return
-{
-  'akinsho/toggleterm.nvim',
+return {
+  "akinsho/toggleterm.nvim",
   event = "VeryLazy",
   -- enabled = false,
   version = "*",
   -- config = true,
   config = function()
-    require("toggleterm").setup {
-      direction = 'float',
-    }
+    require("toggleterm").setup({
+      direction = "float",
+    })
   end,
 
   -- vim.keymap.set({ "n", "i", "v", "t" }, "<C-/>", "<cmd>ToggleTerm direction=float<CR>"),

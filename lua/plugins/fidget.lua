@@ -1,5 +1,4 @@
-return
-{
+return {
   {
     "j-hui/fidget.nvim",
     lazy = false,
@@ -10,7 +9,7 @@ return
 
     opts = {
       notification = {
-        history_size = 128,         -- Number of removed messages to retain in history
+        history_size = 128, -- Number of removed messages to retain in history
         override_vim_notify = true, -- Automatically override vim.notify() with Fidget
       },
     },

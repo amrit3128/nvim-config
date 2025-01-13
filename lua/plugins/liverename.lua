@@ -1,5 +1,4 @@
-return
-{
+return {
   "saecki/live-rename.nvim",
   event = "VeryLazy",
   config = function()
@@ -35,5 +34,5 @@ return
         others = "Search",
       },
     })
-  end
+  end,
 }

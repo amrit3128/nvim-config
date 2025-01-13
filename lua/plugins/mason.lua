@@ -1,5 +1,4 @@
-return
-{
+return {
   {
     "williamboman/mason.nvim",
     event = "VeryLazy",
@@ -11,7 +10,7 @@ return
           library = {
             -- See the configuration section for more details
             -- Load luvit types when the `vim.uv` word is found
-            { path = "${3rd}/luv/library",   words = { "vim%.uv" } },
+            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
             { path = "${3rd}/love2d/library" },
           },
         },
@@ -34,34 +33,33 @@ return
             config = function()
               local navic = require("nvim-navic")
 
-
-              navic.setup {
+              navic.setup({
                 icons = {
-                  File          = "󰈙 ",
-                  Module        = " ",
-                  Namespace     = "󰌗 ",
-                  Package       = " ",
-                  Class         = "󰌗 ",
-                  Method        = "󰆧 ",
-                  Property      = " ",
-                  Field         = " ",
-                  Constructor   = " ",
-                  Enum          = "󰕘",
-                  Interface     = "󰕘",
-                  Function      = "󰊕 ",
-                  Variable      = "󰆧 ",
-                  Constant      = "󰏿 ",
-                  String        = "󰀬 ",
-                  Number        = "󰎠 ",
-                  Boolean       = "◩ ",
-                  Array         = "󰅪 ",
-                  Object        = "󰅩 ",
-                  Key           = "󰌋 ",
-                  Null          = "󰟢 ",
-                  EnumMember    = " ",
-                  Struct        = "󰌗 ",
-                  Event         = " ",
-                  Operator      = "󰆕 ",
+                  File = "󰈙 ",
+                  Module = " ",
+                  Namespace = "󰌗 ",
+                  Package = " ",
+                  Class = "󰌗 ",
+                  Method = "󰆧 ",
+                  Property = " ",
+                  Field = " ",
+                  Constructor = " ",
+                  Enum = "󰕘",
+                  Interface = "󰕘",
+                  Function = "󰊕 ",
+                  Variable = "󰆧 ",
+                  Constant = "󰏿 ",
+                  String = "󰀬 ",
+                  Number = "󰎠 ",
+                  Boolean = "◩ ",
+                  Array = "󰅪 ",
+                  Object = "󰅩 ",
+                  Key = "󰌋 ",
+                  Null = "󰟢 ",
+                  EnumMember = " ",
+                  Struct = "󰌗 ",
+                  Event = " ",
+                  Operator = "󰆕 ",
                   TypeParameter = "󰊄 ",
                 },
                 lsp = {
@@ -78,47 +76,46 @@ return
                 format_text = function(text)
                   return text
                 end,
-              }
+              })
               -- require("lspconfig").clangd.setup {
               --   on_attach = function(client, bufnr)
               --     navic.attach(client, bufnr)
               --   end
               -- }
-            end
-
+            end,
           },
-          "MunifTanjim/nui.nvim"
+          "MunifTanjim/nui.nvim",
         },
-        opts = { lsp = { auto_attach = true } }
+        opts = { lsp = { auto_attach = true } },
       },
     },
 
     config = function()
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
+      local capabilities = require("blink.cmp").get_lsp_capabilities()
       require("mason").setup()
       require("mason-lspconfig").setup()
 
-      require("mason-lspconfig").setup_handlers {
+      require("mason-lspconfig").setup_handlers({
         -- The first entry (without a key) will be the default handler
         -- and will be called for each installed server that doesn't have
         -- a dedicated handler.
         function(server_name) -- default handler (optional)
-          require("lspconfig")[server_name].setup {
+          require("lspconfig")[server_name].setup({
             capabilities = capabilities,
 
             on_attach = function(client, bufnr)
               if client.server_capabilities.documet_Symbol_Provider then
                 require("nvim-navic").attach(client, bufnr)
               end
-            end
-          }
+            end,
+          })
         end,
         -- Next, you can provide a dedicated handler for specific servers.
         -- For example, a handler override for the `rust_analyzer`:
         -- ["rust_analyzer"] = function ()
         --   require("rust-tools").setup {}
         -- end
-      }
+      })
       -- After setting up mason-lspconfig you may set up servers via lspconfig
       -- require("lspconfig").lua_ls.setup {}
       -- require("lspconfig").rust_analyzer.setup {}
@@ -126,10 +123,12 @@ return
 
       vim.cmd("set tabstop=2")
 
-      vim.api.nvim_create_autocmd('LspAttach', {
+      vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
-          if not client then return end
+          if not client then
+            return
+          end
 
           ---@diagnostic disable-next-line: missing-parameter
           -- if client.supports_method('textDocument/formatting') then
@@ -155,13 +154,19 @@ return
 
       local live_rename = require("live-rename")
 
-      vim.keymap.set("n", "<space>cf", function() vim.lsp.buf.format() end, { desc = "Format Buffer" })
+      vim.keymap.set("n", "<space>cf", function()
+        vim.lsp.buf.format()
+      end, { desc = "Format Buffer" })
       -- vim.keymap.set("n", "<space>cr", function() vim.lsp.buf.rename() end, { desc = "Rename with LSP" })
-      vim.keymap.set("n", "<leader>ci", "<cmd>Navbuddy<Cr>", { desc = "Navbuddy" })
+      vim.keymap.set("n", "<leader>i", "<cmd>Navbuddy<Cr>", { desc = "Navbuddy" })
       vim.keymap.set("n", "<leader>cr", live_rename.rename, { desc = "LSP rename" })
-      vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, { desc = "Go To Defination" })
-      vim.keymap.set("n", "grr", function() vim.lsp.buf.references() end, { desc = "Go To References" })
+      vim.keymap.set("n", "gd", function()
+        vim.lsp.buf.definition()
+      end, { desc = "Go To Defination" })
+      vim.keymap.set("n", "<space>gr", function()
+        vim.lsp.buf.references()
+      end, { desc = "Go To References" })
       -- vim.keymap.set("n", "<space>ca", function() vim.lsp.buf.code_action() end, { desc = "Show Code Actions" })
-    end
+    end,
   },
 }

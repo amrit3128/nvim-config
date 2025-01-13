@@ -1,7 +1,6 @@
-return
-{
+return {
   {
-    'saghen/blink.cmp',
+    "saghen/blink.cmp",
 
     event = "VeryLazy",
     -- optional: provides snippets for the snippet source
@@ -10,34 +9,34 @@ return
       "mikavilpas/blink-ripgrep.nvim",
     },
 
-    version = 'v0.*',
+    version = "v0.*",
 
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
       keymap = {
-        preset = 'default',
+        preset = "default",
 
         ["<C-g>"] = {
           function()
             require("blink-cmp").show({ providers = { "ripgrep" } })
-          end
-        }
-
+          end,
+        },
       },
 
       appearance = {
-        nerd_font_variant = 'mono'
+        nerd_font_variant = "mono",
       },
 
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'buffer', 'markdown', 'ripgrep', },
+        -- default = { 'lsp', 'path', 'snippets', 'buffer', 'markdown', 'ripgrep', },
+        default = { "lsp", "path", "snippets", "buffer", "ripgrep" },
         providers = {
-          markdown = {
-            name = 'RenderMarkdown',
-            module = 'render-markdown.integ.blink',
-            fallbacks = { 'lsp' },
-          },
+          -- markdown = {
+          --   name = 'RenderMarkdown',
+          --   module = 'render-markdown.integ.blink',
+          --   fallbacks = { 'lsp' },
+          -- },
 
           ripgrep = {
             module = "blink-ripgrep",
@@ -122,11 +121,10 @@ return
         },
 
         cmdline = {},
-
       },
 
-      signature = { enabled = true }
+      signature = { enabled = true },
     },
-    opts_extend = { "sources.default" }
+    opts_extend = { "sources.default" },
   },
 }

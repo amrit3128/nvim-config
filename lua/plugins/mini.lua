@@ -1,7 +1,6 @@
-return
-{
+return {
   {
-    'echasnovski/mini.nvim',
+    "echasnovski/mini.nvim",
     event = "VeryLazy",
     version = false,
     config = function()
@@ -22,16 +21,16 @@ return
           -- Module mappings. Use `''` (empty string) to disable one.
           mappings = {
             -- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.
-            left = '<M-h>',
-            right = '<M-l>',
-            down = '<M-j>',
-            up = '<M-k>',
+            left = "<M-h>",
+            right = "<M-l>",
+            down = "<M-j>",
+            up = "<M-k>",
 
             -- Move current line in Normal mode
-            line_left = '<M-h>',
-            line_right = '<M-l>',
-            line_down = '<M-j>',
-            line_up = '<M-k>',
+            line_left = "<M-h>",
+            line_right = "<M-l>",
+            line_down = "<M-j>",
+            line_up = "<M-k>",
           },
 
           -- Options which control moving behavior
@@ -39,16 +38,18 @@ return
             -- Automatically reindent selection during linewise vertical move
             reindent_linewise = true,
           },
-        }
+        },
       })
 
       require("mini.pairs").setup()
 
-      require("mini.files").setup { use_icons = true }
-      vim.keymap.set("n", "<space>e", function() MiniFiles.open() end, { desc = "Mini Files" })
+      require("mini.files").setup({ use_icons = true })
+      vim.keymap.set("n", "<space>e", function()
+        MiniFiles.open()
+      end, { desc = "Mini Files" })
 
       require("mini.ai").setup()
       -- require("mini.pick").setup()
     end,
-  }
+  },
 }
