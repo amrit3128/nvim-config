@@ -17,9 +17,10 @@ return {
       -- The available REPL palattes that `yarepl` can create REPL based on.
       -- To disable a built-in meta, set its key to `false`, e.g., `metas = { R = false }`
       metas = {
-        aichat = { cmd = "aichat", formatter = yarepl.formatter.bracketed_pasting },
-        -- radian = { cmd = 'radian', formatter = yarepl.formatter.bracketed_pasting },
+        aichat = false,
+        radian = false,
         ipython = { cmd = "ipython", formatter = yarepl.formatter.bracketed_pasting },
+        lua = { cmd = "lua", formatter = yarepl.formatter.bracketed_pasting },
         python = { cmd = "python", formatter = yarepl.formatter.trim_empty_lines },
         R = { cmd = "R", formatter = yarepl.formatter.trim_empty_lines },
         sbcl = { cmd = "sbcl", formatter = yarepl.formatter.trim_empty_lines },

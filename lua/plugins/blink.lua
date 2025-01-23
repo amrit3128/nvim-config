@@ -29,14 +29,15 @@ return {
       },
 
       sources = {
-        -- default = { 'lsp', 'path', 'snippets', 'buffer', 'markdown', 'ripgrep', },
-        default = { "lsp", "path", "snippets", "buffer", "ripgrep" },
+        -- Ripgrep lags fucking BALLS when I use neovim in the home directory
+        -- default = { "lsp", "path", "snippets", "buffer", "markdown", "ripgrep" },
+        default = { "lsp", "path", "snippets", "buffer", "markdown" },
         providers = {
-          -- markdown = {
-          --   name = 'RenderMarkdown',
-          --   module = 'render-markdown.integ.blink',
-          --   fallbacks = { 'lsp' },
-          -- },
+          markdown = {
+            name = "RenderMarkdown",
+            module = "render-markdown.integ.blink",
+            fallbacks = { "lsp" },
+          },
 
           ripgrep = {
             module = "blink-ripgrep",

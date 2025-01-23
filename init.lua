@@ -59,3 +59,7 @@ vim.keymap.set({ "n", "t" }, "<M-p>", "<cmd>bprevious<CR>", { desc = "Previous B
 require("config.lazy")
 
 vim.cmd("colorscheme tokyonight")
+
+vim.filetype.add({
+  pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },
+})
