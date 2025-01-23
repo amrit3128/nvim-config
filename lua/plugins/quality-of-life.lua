@@ -719,7 +719,8 @@ return {
   {
     "abecodes/tabout.nvim",
     ---@diagnostic disable-next-line: duplicate-index
-    -- event = "VeryLazy",
+    event = "VeryLazy",
+    enabled = false,
     lazy = false,
     config = function()
       require("tabout").setup({
