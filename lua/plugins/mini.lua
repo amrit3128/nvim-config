@@ -44,7 +44,7 @@ return {
         },
       })
 
-      -- require("mini.pairs").setup()
+      require("mini.pairs").setup()
 
       require("mini.files").setup({
         -- Customization of shown content
